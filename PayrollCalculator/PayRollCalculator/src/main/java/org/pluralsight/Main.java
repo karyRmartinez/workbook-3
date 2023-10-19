@@ -1,8 +1,11 @@
 package org.pluralsight;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
 
@@ -10,10 +13,19 @@ public class Main {
 
         ArrayList<Employee> employees = new ArrayList<>();
 
+        Scanner scanner = new Scanner(System.in);
         try {
             BufferedReader bufferRead = new BufferedReader(new FileReader("employees.csv"));
-            String line = null;
-            bufferRead.readLine();
+            BufferedWriter bufferWriter = new BufferedWriter(new FileWriter("outputFile"));
+
+            System.out.print("Enter input file: ");
+//            System.out.print("Enter file:");
+            String fileName = scanner.nextLine();
+
+              String line = null;
+
+
+//            System.out.println("Data has been written to the file.");
 
             while ((line = bufferRead.readLine()) != null) {
 
@@ -29,11 +41,17 @@ public class Main {
             }
             bufferRead.close();
 
+            System.out.print("Enter output file: ");
+            String outputFile = scanner.nextLine();
+
             for (Employee employee : employees) {
               double grossPay = employee.getGrossPay();
+                bufferWriter.write(employee.getEmployeeID() + employee.getName() + "|"+ String.format("%2f", grossPay));
+                bufferWriter.newLine();;
             // System.out.println("The employee:" + employee.getEmployeeID() + "| Name: " + employee.getName() + "| GrossPay:" + grossPay);
               System.out.printf("\nemployeeId:%d,\nemployeeName:%s,\nemployeePay.%.2f\n", employee.getEmployeeID(),employee.getName(),employee.getGrossPay());
             }
+
 
         } catch (Exception e) {
 
