@@ -28,10 +28,11 @@ public class Main {
                 employees.add(employee);
             }
             bufferRead.close();
-            
+
             for (Employee employee : employees) {
               double grossPay = employee.getGrossPay();
-               System.out.println("The employee:" + employee.getName() + "| GrossPay:" + grossPay);
+            // System.out.println("The employee:" + employee.getEmployeeID() + "| Name: " + employee.getName() + "| GrossPay:" + grossPay);
+              System.out.printf("\nemployeeId:%d,\nemployeeName:%s,\nemployeePay.%.2f\n", employee.getEmployeeID(),employee.getName(),employee.getGrossPay());
             }
 
         } catch (Exception e) {
