@@ -20,7 +20,7 @@ public class Main {
         String formattedDate3 = currentTime.format(DateTimeFormatter.ofPattern("MMMM d, YYYY"));
             System.out.println("format for 3: " + formattedDate3);
 
-        String formattedDate4 = currentTime.atOffset(ZoneOffset.UTC).format(DateTimeFormatter.ofPattern("EEEE, MMM d, YYY HH: mm"));
+        String formattedDate4 = currentTime.atOffset(ZoneOffset.UTC).format(DateTimeFormatter.ofPattern(" 🗓 EEEE, MMM d, YYY HH: mm"));
         System.out.println("formatted Date and GMT " + formattedDate4);
     }
 }
