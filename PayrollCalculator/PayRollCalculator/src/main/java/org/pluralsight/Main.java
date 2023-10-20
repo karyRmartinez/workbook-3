@@ -1,9 +1,6 @@
 package org.pluralsight;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -19,13 +16,13 @@ public class Main {
             BufferedWriter bufferWriter = new BufferedWriter(new FileWriter("outputFile"));
 
             System.out.print("Enter input file: ");
-//            System.out.print("Enter file:");
+           //System.out.print("Enter file:");
             String fileName = scanner.nextLine();
-
+           // BufferedWriter writer = null;
               String line = null;
 
 
-//            System.out.println("Data has been written to the file.");
+           //System.out.println("Data has been written to the file.");
 
             while ((line = bufferRead.readLine()) != null) {
 
@@ -48,10 +45,10 @@ public class Main {
               double grossPay = employee.getGrossPay();
                 bufferWriter.write(employee.getEmployeeID() + employee.getName() + "|"+ String.format("%2f", grossPay));
                 bufferWriter.newLine();;
+               // bufferWriter.close();
             // System.out.println("The employee:" + employee.getEmployeeID() + "| Name: " + employee.getName() + "| GrossPay:" + grossPay);
               System.out.printf("\nemployeeId:%d,\nemployeeName:%s,\nemployeePay.%.2f\n", employee.getEmployeeID(),employee.getName(),employee.getGrossPay());
             }
-
 
         } catch (Exception e) {
 
